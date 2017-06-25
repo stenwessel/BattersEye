@@ -1,0 +1,39 @@
+group 'nl.stenwessel.batterseye'
+version '0.1.0'
+
+buildscript {
+    ext.kotlin_version = '1.1.3'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+sourceSets {
+    main.kotlin.srcDirs = ['src']
+    main.java.srcDirs = ['src']
+    main.resources.srcDirs = ['res']
+    test.kotlin.srcDirs = ['test']
+    test.java.srcDirs = ['test']
+    test.resources.srcDirs = ['testres']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
