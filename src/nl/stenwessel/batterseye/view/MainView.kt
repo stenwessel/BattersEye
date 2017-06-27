@@ -22,6 +22,7 @@ class GameWizard : Wizard("Score a new game", "Please provide game details") {
     val game: GameModel by inject()
 
     init {
+        graphic = resources.imageview("/img/icons/app64.png")
         add(GameStep::class)
     }
 

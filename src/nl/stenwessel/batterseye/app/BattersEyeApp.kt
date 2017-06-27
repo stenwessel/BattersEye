@@ -17,7 +17,10 @@ class BattersEyeApp : App(MainView::class) {
     }
 
     init {
-        addStageIcon(Image(""))
+        addStageIcon(Image("/img/icons/app16.png"))
+        addStageIcon(Image("/img/icons/app32.png"))
+        addStageIcon(Image("/img/icons/app48.png"))
+        addStageIcon(Image("/img/icons/app256.png"))
     }
 }
 
