@@ -19,6 +19,8 @@ class Team(var name: String = "", var abbreviation: String = "") : JsonModelAuto
     fun delete() {
         INSTANCES -= this
     }
+
+    override fun toString(): String = "$name ($abbreviation)"
 }
 
 class Player(firstName: String? = null, lastName: String? = null) {

@@ -2,6 +2,9 @@ package nl.stenwessel.batterseye.app
 
 import javafx.application.Application
 import javafx.scene.image.Image
+import javafx.scene.input.KeyCode
+import javafx.scene.input.KeyCodeCombination
+import javafx.scene.input.KeyCombination
 import nl.stenwessel.batterseye.model.Team
 import nl.stenwessel.batterseye.view.MainView
 import tornadofx.*
@@ -20,6 +23,8 @@ class BattersEyeApp : App(MainView::class) {
     init {
         addIcons()
         loadDiskData()
+
+        FX.layoutDebuggerShortcut = KeyCodeCombination(KeyCode.J, KeyCombination.CONTROL_DOWN, KeyCombination.ALT_DOWN)
     }
 
     override fun stop() {

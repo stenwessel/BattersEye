@@ -1,6 +1,7 @@
 package nl.stenwessel.batterseye.view
 
 import nl.stenwessel.batterseye.app.BattersEyeApp
+import nl.stenwessel.batterseye.model.Team
 import tornadofx.*
 
 /**
@@ -31,8 +32,21 @@ class GameWizard : Wizard("Score a new game", "Please provide game details") {
 
         override val root = form {
             fieldset(title) {
-                field("Home team") {  }
-                field("Away team") {  }
+                field("Home team") {
+                    combobox(game.home, Team.INSTANCES.toList()) {
+                        required()
+                        isEditable = true
+                        makeAutocompletable {
+                            items.filter { t -> t.toString().contains(it, true) }
+                        }
+
+                        useMaxWidth = true
+                    }
+                    button("+") {
+                        usePrefWidth = true
+                    }
+                }
+                field("Away team") { }
             }
         }
     }
