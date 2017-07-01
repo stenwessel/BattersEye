@@ -1,27 +1,6 @@
 package nl.stenwessel.batterseye.model
 
-import javafx.collections.ObservableSet
 import tornadofx.*
-
-/**
- *
- * @author Sten Wessel
- */
-class Team(var name: String = "", var abbreviation: String = "") : JsonModelAuto {
-    companion object {
-        val INSTANCES: ObservableSet<Team> = mutableSetOf<Team>().observable()
-    }
-
-    init {
-        INSTANCES += this
-    }
-
-    fun delete() {
-        INSTANCES -= this
-    }
-
-    override fun toString(): String = "$name ($abbreviation)"
-}
 
 class Player(firstName: String? = null, lastName: String? = null) {
     var firstName by property(firstName)

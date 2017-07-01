@@ -1,13 +1,16 @@
-package nl.stenwessel.batterseye.view
+package nl.stenwessel.batterseye.model
 
-import nl.stenwessel.batterseye.model.Game
 import tornadofx.*
 
 /**
  *
  * @author Sten Wessel
  */
+class Game(val home: Team, val away: Team)
+
 class GameModel : ItemViewModel<Game>() {
     val home = bind(Game::home)
     val away = bind(Game::away)
 }
+
+
