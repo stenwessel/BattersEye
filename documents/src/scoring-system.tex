@@ -1,0 +1,53 @@
+\documentclass{techdoc}
+
+\title{Scoring system}
+\author{Sten Wessel\\\href{mailto:sten.wessel@gmail.com}{\texttt{sten.wessel@gmail.com}}}
+
+\begin{document}
+    \maketitle
+
+    \clearpage
+    \thispagestyle{empty}
+    \vspace*{\stretch{2}}
+    \begin{center}
+        \begin{minipage}{.6\textwidth}\centering
+        \textit{This page is intentionally left blank}
+        \end{minipage}
+    \end{center}
+    \vspace{\stretch{3}}
+    \clearpage
+
+    \tableofcontents
+
+    \part{Command Reference}
+
+    \chapter{Commands}
+    \begin{description}
+        \Command{pa[<pitches>|<play>]} Declares a plate appearance. All pitches are indicated with a single letter:
+        \begin{description}
+            \command{s} swinging strike
+            \command{c} called strike
+            \command{f} foul ball
+            \command{k} generic strike (if unknown type)
+            \command{b} ball
+            \command{i} intentional ball
+            \command{h} hit by pitch
+            \command{n} no pitch
+            \command{?} unknown pitch
+            \command{.} intermediate play on bases (does not record a pitch)
+            \command{p} pick off attempt (whether successful or not)
+            \command{x} ball in play (optional---only necessary when using a pitch modifier)
+        \end{description}
+        When applicable, these pitches can be augmented with additional data by using a \emph{modifier}. The modifier is inserted directly following the pitch letter, starting with \code{/} and ending with \code{;}. It is possible to have multiple modifiers. In this case, the modifiers are simply chained by placed them after each other. The available modifiers:
+        \begin{description}
+            \Command{/bunt;} Attempted bunt (whether successful or not).
+            \Command{/pitchout;} Pitchout.
+            \Command{/tip;} Foul tip.
+            \Command{/? <comment>;} Additional explanation. Can be useful for misplays.
+            \Command{/cpo:<base>(:<play>);} Catcher pick off attempt. The base can either be \code{1}, \code{2} or \code{3}. The play is optional.
+        \end{description}
+        A pick off must always have a modifier indicating the base where the pick off was attempted: \code{/<base>(:<play>)}. The base can either be \code{1}, \code{2} or \code{3}. The play is optional.
+        A plate appearance can be incomplete (when for instance a play on the bases ends an inning, or when the batter is substituted for). In that case, the play is left out. The command will be of the form \code{pa[<pitches>]}.
+
+    \end{description}
+\end{document}
