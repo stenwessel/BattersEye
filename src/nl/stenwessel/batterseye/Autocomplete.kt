@@ -8,8 +8,8 @@ import tornadofx.*
  *
  * @author Sten Wessel
  */
-class ResizableAutocompleteSkin<T>(comboBox: ComboBox<T>, autoCompleteFilter: ((String) -> List<T>)?,
-        height: Double = 24.0) : AutoCompleteComboBoxSkin<T>(comboBox, autoCompleteFilter) {
+class ResizableAutocompleteSkin<T>(comboBox: ComboBox<T>, autoCompleteFilter: ((String) -> List<T>)? = null,
+        height: Double = 24.0) : AutoCompleteComboBoxSkin<T>(comboBox, autoCompleteFilter, automaticPopupWidth = true) {
 
     init {
         with(listView) {

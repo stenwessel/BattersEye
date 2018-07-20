@@ -2,6 +2,7 @@ package nl.stenwessel.batterseye.view
 
 import javafx.scene.control.TextFormatter
 import javafx.scene.layout.Pane
+import nl.stenwessel.batterseye.data.Team
 import nl.stenwessel.batterseye.model.TeamModel
 import tornadofx.*
 
@@ -25,7 +26,7 @@ class TeamForm : View("Edit team details") {
                     field("Abbreviation") {
                         textfield(model.abbreviation) {
                             required()
-                            textFormatter = TextFormatter<String>({ t -> t.apply { text = text.toUpperCase() } })
+                            textFormatter = TextFormatter<String> { t -> t.apply { text = text.toUpperCase() } }
                         }
                     }
                     button("Save") {
@@ -39,6 +40,7 @@ class TeamForm : View("Edit team details") {
 
     private fun save() {
         model.commit {
+            Team.INSTANCES += model.item
             close()
         }
     }

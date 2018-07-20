@@ -6,8 +6,8 @@ import javafx.event.EventTarget
 import javafx.geometry.Pos
 import nl.stenwessel.batterseye.ResizableAutocompleteSkin
 import nl.stenwessel.batterseye.asObservableList
+import nl.stenwessel.batterseye.data.Team
 import nl.stenwessel.batterseye.model.GameModel
-import nl.stenwessel.batterseye.model.Team
 import nl.stenwessel.batterseye.model.TeamModel
 import tornadofx.*
 
@@ -60,7 +60,7 @@ class GameStep : View("Teams") {
             required()
             isEditable = true
             visibleRowCount = 5
-            skin = ResizableAutocompleteSkin(this, null)
+            skin = ResizableAutocompleteSkin(this)
 
             useMaxWidth = true
         }

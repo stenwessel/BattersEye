@@ -5,7 +5,7 @@ import javafx.scene.image.Image
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyCodeCombination
 import javafx.scene.input.KeyCombination
-import nl.stenwessel.batterseye.model.Team
+import nl.stenwessel.batterseye.data.Team
 import nl.stenwessel.batterseye.view.MainView
 import tornadofx.*
 
@@ -41,7 +41,7 @@ class BattersEyeApp : App(MainView::class) {
 
     private fun loadDiskData() {
         // Load saved teams
-        config.jsonArray("teams")?.toModel<Team>()
+        Team.INSTANCES.addAll(config.jsonArray("teams")?.toModel() ?: emptySet())
     }
 
     private fun saveDiskData() {

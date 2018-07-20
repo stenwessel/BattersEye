@@ -1,4 +1,4 @@
-package nl.stenwessel.batterseye.model
+package nl.stenwessel.batterseye.data
 
 import javafx.collections.ObservableSet
 import tornadofx.*
@@ -15,18 +15,8 @@ class Team(var name: String = "", abbreviation: String = "") : JsonModelAuto {
     var abbreviation = abbreviation.toUpperCase()
         set(value) { field = value.toUpperCase() }
 
-    init {
-        INSTANCES += this
-    }
-
-    fun delete() {
-        INSTANCES -= this
-    }
+    val activeRoster = mutableListOf<TeamPlayer>()
 
     override fun toString(): String = "$name ($abbreviation)"
 }
 
-class TeamModel : ItemViewModel<Team>() {
-    val name = bind(Team::name)
-    val abbreviation = bind(Team::abbreviation)
-}

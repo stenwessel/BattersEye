@@ -19,15 +19,3 @@ class ScoringView : View(BattersEyeApp.TITLE) {
         }
     }
 }
-
-//class LineupPanel(lineup: ObservableList<Player>) : Fragment() {
-//    override val root = tableview(lineup) {
-//        makeIndexColumn("").contentWidth(useAsMin = true, useAsMax = true)
-//        column("Name", Player::name).remainingWidth()
-//        column("#", Player::number).contentWidth(useAsMin = true, useAsMax = true)
-//
-//        columnResizePolicy = SmartResize.POLICY
-//        columns.forEach { it.isSortable = false }
-//    }
-//
-//}
